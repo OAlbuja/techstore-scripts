@@ -1,6 +1,4 @@
--- Ejecucion y pruebas 
-
--- Asegurarse de usar la base de datos correcta
+-- Usar la base de datos correcta
 USE techstore_db;
 
 -- INSERTAR PRODUCTOS
@@ -24,13 +22,11 @@ CALL registrar_venta(1, 5, 'Tienda Principal', '2024-11-15'); -- Venta válida
 CALL registrar_venta(2, 2, 'Tienda Secundaria', '2024-11-16'); -- Venta válida
 CALL registrar_venta(3, 3, 'Tienda Principal', '2024-11-16'); -- Venta válida
 
--- PRUEBA: VENTA CON INVENTARIO INSUFICIENTE
--- Esta venta debería fallar porque se pide más cantidad de la disponible
-CALL registrar_venta(2, 10, 'Tienda Secundaria', '2024-11-17'); 
+-- PRUEBA: VENTA CON INVENTARIO INSUFICIENTE (Esta puede fallar)
+CALL registrar_venta(2, 10, 'Tienda Secundaria', '2024-11-17');
 
--- PRUEBA: VENTA DE PRODUCTO SIN STOCK
--- Esta venta debería fallar porque el producto está agotado
-CALL registrar_venta(4, 1, 'Tienda Principal', '2024-11-17'); 
+-- PRUEBA: VENTA DE PRODUCTO SIN STOCK (Esta puede fallar)
+CALL registrar_venta(4, 1, 'Tienda Principal', '2024-11-17');
 
 -- ACTUALIZAR PRECIOS
 CALL actualizar_precio(1, 120.00); -- Cambiar el precio del producto 1
